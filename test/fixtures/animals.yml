@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  species: MyString
+  seen_count: 1
+  last_seen_location: MyString
+
+two:
+  species: MyString
+  seen_count: 1
+  last_seen_location: MyString
