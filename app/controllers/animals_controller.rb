@@ -1,13 +1,22 @@
 class AnimalsController < ApplicationController
   #  GET /animals
   def index
-    @animals = Animal.all
+    species = params[:species]
+
+    if species
+      @animals = Animal.where("species ilike ?", "%#{species}%")
+      # ilike is case insenitive like
+      # think about the SQL statement - select * from foods where name like %name%
+    else
+      @animals = Animal.all
+    end
+
     render json: @animals
   end
 
   # GET /animals/1
   def show
-    @animal = Animal.find(params[:species] == "Lion")
+    @animal = Animal.find(params[:species] == 2)
 
     render json: @animal
   end
