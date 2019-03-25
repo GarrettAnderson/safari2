@@ -17,7 +17,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1
   def show
-    @animal = Animal.find(params[:id] == 2)
+    @animal = Animal.find(params[:id])
 
     render json: @animal
   end
@@ -28,7 +28,7 @@ class AnimalsController < ApplicationController
     @animal.seen_count += 1
     
     if @animal.save
-      render json: @animal, status: :created, location: @animal
+      render json: @animal
     else
       render json: @animal.errors, status: :unprocessable_entity
     end
