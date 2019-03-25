@@ -4,8 +4,8 @@ class AnimalsController < ApplicationController
     # species = params[:species]
     location = params[:last_seen_location ]
 
-    if species
-      @animals = Animal.where("species ilike ?", "%#{location}%")
+    if location
+      @animals = Animal.where("location ilike ?", "%#{location}%")
       # ilike is case insenitive like
       # think about the SQL statement - select * from foods where name like %name%
     else
