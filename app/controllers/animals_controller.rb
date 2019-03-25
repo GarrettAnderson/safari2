@@ -1,10 +1,11 @@
 class AnimalsController < ApplicationController
   #  GET /animals
   def index
-    species = params[:species]
+    # species = params[:species]
+    location = params[:last_seen_location ]
 
     if species
-      @animals = Animal.where("species ilike ?", "%#{species}%")
+      @animals = Animal.where("species ilike ?", "%#{location}%")
       # ilike is case insenitive like
       # think about the SQL statement - select * from foods where name like %name%
     else
