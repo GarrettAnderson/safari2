@@ -17,10 +17,23 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1
   def show
-    @animal = Animal.find(params[:species] == 2)
+    @animal = Animal.find(params[:id] == 2)
 
     render json: @animal
   end
+
+  # PUT /animals/:id/imcrement
+  def increment 
+    @animal = Animal.find(params[:id])
+    @animal.seen_count += 1
+    
+    if @animal.save
+      render json: @animal, status: :created, location: @animal
+    else
+      render json: @animal.errors, status: :unprocessable_entity
+    end
+  end
+
 
   # POST /animals
   def create
