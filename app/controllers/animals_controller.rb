@@ -58,11 +58,11 @@ class AnimalsController < ApplicationController
   # end
 
   # # DELETE /animals/1
-  # def destroy
-  #   @animal = Animal.find(params[:id])
+  def destroy
+    @animal = Animal.find(params[:id])
 
-  #   @animal.destroy
-  # end
+    @animal.destroy
+  end
 
   # private
 
