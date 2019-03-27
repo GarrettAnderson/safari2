@@ -22,6 +22,8 @@ class AnimalsController < ApplicationController
     render json: @animal
   end
 
+  # GET /animals/:id/total
+
   # PUT /animals/:id/imcrement
   def increment 
     @animal = Animal.find(params[:id])
@@ -60,8 +62,11 @@ class AnimalsController < ApplicationController
   # # DELETE /animals/1
   def destroy
     @animal = Animal.find(params[:id])
-
     @animal.destroy
+    # respond_to do |format|
+    #   formal.html { redirect_to animals_url, notice: "Animal was successfully removed."}
+    #   format.json { head :no_content}
+    # end
   end
 
   # private
